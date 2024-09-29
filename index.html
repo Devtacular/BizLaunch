@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Landing Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+        .logo {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) saturate(100%) invert(72%) sepia(11%) saturate(2286%) hue-rotate(75deg) brightness(92%) contrast(89%);
+        }
+        .logo-link {
+            display: inline-block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .logo-link:hover {
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+        .hero {
+            background-color: #f4f4f4;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #34495e;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .services {
+            padding: 4rem 0;
+            background-color: #fff;
+        }
+        .services h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .service i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+        .service h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .service p {
+            color: #34495e;
+            margin-bottom: 1rem;
+        }
+        .service ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+        .service ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .service ul li:before {
+            content: "\f00c";
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+        }
+        .about {
+            background-color: #f4f4f4;
+            padding: 4rem 0;
+        }
+        .about h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .team-members {
+            flex: 1;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .team-member {
+            text-align: center;
+        }
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .team-member h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .team-member p {
+            color: #34495e;
+            font-size: 0.9rem;
+        }
+        .contact {
+            padding: 4rem 0;
+            background-color: #e9f7ef;
+        }
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        form input:focus, form textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        form .btn-container {
+            text-align: center;
+        }
+        .social-links {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #4CAF50;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        footer nav {
+            margin-top: 1rem;
+        }
+        footer nav ul {
+            justify-content: center;
+        }
+        footer nav ul li {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo-link">
+                    <img src="/api/placeholder/120/40" alt="Your Logo" class="logo">
+                </a>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Welcome to Our Business</h1>
+            <p>We provide top-notch services to help your business grow.</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Business Strategy</h3>
+                    <p>Develop a winning strategy for your business growth</p>
+                    <ul>
+                        <li>Market Analysis</li>
+                        <li>Competitive Positioning</li>
+                        <li>Growth Planning</li>
+                        <li>Performance Metrics</li>
+                    </ul>
+                </div>
+                <div class="service">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation Consulting</h3>
+                    <p>Transform your ideas into successful products</p>
+                    <ul>
+                        <li>Idea Generation</li>
+                        <li>Prototype Development</li>
+                        <li>Market Testing</li>
+                        <li>Implementation Support</li>
+                    </ul>
+                </div>
+                <div class="service">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Performance Optimization</h3>
+                    <p>Maximize your business efficiency and profitability</p>
+                    <ul>
+                        <li>Process Analysis</li>
+                        <li>Efficiency Improvements</li>
+                        <li>Cost Reduction</li>
+                        <li>Quality Enhancement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>We are a dedicated team of professionals committed to delivering exceptional results for our clients. With years of experience and a passion for innovation, we strive to exceed expectations in everything we do.</p>
+                    <p>Our diverse team brings a wealth of knowledge from various industries, allowing us to provide comprehensive solutions tailored to your unique business needs.</p>
+                </div>
+                <div class="team-members">
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <img src="/api/placeholder/120/120" alt="John Doe">
+                            <h4>John Doe</h4>
+                            <p>CEO & Founder</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="/api/placeholder/120/120" alt="Jane Smith">
+                            <h4>Jane Smith</h4>
+                            <p>Chief Strategy Officer</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="/api/placeholder/120/120" alt="Mike Johnson">
+                            <h4>Mike Johnson</h4>
+                            <p>Innovation Lead</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="/api/placeholder/120/120" alt="Sarah Brown">
+                            <h4>Sarah Brown</h4>
+                            <p>Performance Analyst</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <div class="btn-container">
+                    <button type="submit" class="btn">Send Message</button>
+                </div>
+            </form>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Business Name. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
